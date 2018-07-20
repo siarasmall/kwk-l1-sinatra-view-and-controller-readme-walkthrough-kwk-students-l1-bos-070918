@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title> Results page </title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <style>
+      h1 {
+        font-family: 'Press Start 2P', cursive;
+        font-size: 30px;
+      }
+      </style>
+      <section class="sect1" style="background-color:#A5C4D4">
+  </head>
+  <body class="body">
+     <h1 class="titletext" style= "color:black"> Welcome to the Show Hole...</h1>
+    
+     <h3 class="about_us">About Us</h3>
+    
+   <form type = "button" method = "get" action = "/submission">
+     <button id="submissionbutton">Add a submission</button></br></section>
+    </form></br>
+    
+    <form type = "button" method = "get" action = "/tag_submission">
+     <button id="submissionbutton">Add a tag</button></br></section>
+    </form></br>
+    
+    
+    <h2>The magical showhole has been summoned...</h2>
+      <%=@sorted_list%>
+      <%=@tags%>
+      <ol> Here are your suggestions <br> <br> <br>
+      <%for index in 0..(@sorted_list.length - 1)%>
+        <ol>
+        <img src="<%=@sorted_list[index][5]%>" align='left'>
+          <p> <%=@sorted_list[index][1]%> <br> 
+          Rating: <%=@sorted_list[index][3]%>/5 <br> 
+          Description: <%=@sorted_list[index][4]%><br> 
+          Tags: <%if @sorted_list.length >1%>
+          <%=@sorted_list[index][2].join(", ")%>
+          <%else%>
+          <%=@sorted_list[index][2]%>
+          <%end%>
+          </p>
+        </li>
+        <%end%>
+      </ol>
+  </body>
+</html>
+
